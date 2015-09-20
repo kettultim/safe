@@ -95,6 +95,7 @@ GEM
       capybara (~> 2.2)
       minitest (~> 5.0)
       rake
+    minitest-hooks (1.3.0)
     minitest-metadata (0.5.3)
       minitest (>= 4.7, < 6.0)
     minitest-rails (2.2.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-hooks
   minitest-rails (= 2.2.0)
   minitest-rails-capybara
   minitest-reporters
