@@ -4,10 +4,10 @@ namespace :factory_girl do
   task lint: :environment do
     if Rails.env.test?
       begin
-#        DatabaseCleaner.start
+        DatabaseCleaner.start
         FactoryGirl.lint
       ensure
- #       DatabaseCleaner.clean
+        DatabaseCleaner.clean
       end
     else
       system("bundle exec rake factory_girl:lint RAILS_ENV='test'")

@@ -54,5 +54,5 @@ end
 group :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
-  gem 'minitest-hooks'
+  gem 'database_cleaner', '1.5.0'
 end

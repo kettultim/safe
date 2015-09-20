@@ -3,31 +3,24 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/rails'
 require 'minitest/rails/capybara'
-require 'minitest/hooks/default'
 require 'minitest/reporters'
-
 
 reporter_options = { color: true }
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
-class MiniTest::Unit::TestCase
-  include FactoryGirl::Syntax::Methods
-end
-
-class MiniTest::Spec
-  include FactoryGirl::Syntax::Methods
-end
-
-class ActiveSupport::TestCase
-  include FactoryGirl::Syntax::Methods
-end
-
 include Warden::Test::Helpers
 Warden.test_mode!
 
-# To add Capybara feature tests add `gem "minitest-rails-capybara"`
-# to the test group in the Gemfile and uncomment the following:
-# require "minitest/rails/capybara"
+DatabaseCleaner.strategy = :transaction
 
-# Uncomment for awesome colorful output
-# require "minitest/pride"
+class ActiveSupport::TestCase
+  include FactoryGirl::Syntax::Methods
+
+  before :each do
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
+end
