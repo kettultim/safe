@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -16,9 +15,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # User authentication
 gem 'devise', '3.5.2'
-
 # User authorization
 gem 'pundit', '1.0.1'
+# Pagination
+gem 'kaminari', '0.16.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -58,4 +58,5 @@ group :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
   gem 'database_cleaner', '1.5.0'
+  gem 'launchy', '2.4.3'
 end
