@@ -1,4 +1,6 @@
-<table>
+<% content_for :title, 'Users' %>
+
+<table class="table table-bordered">
   <tr><th>Email</th><th>Actions</th></tr>
   <% @users.each do |user| %>
     <tr>
