@@ -11,6 +11,18 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 include Warden::Test::Helpers
 Warden.test_mode!
 
+def test_password
+  'testing12345'
+end
+
+def login(user)
+  visit root_path
+  click_link 'Login'
+  fill_in :user_email, with: user.email
+  fill_in :user_password, with: test_password
+  click_button 'Log in'
+end
+
 DatabaseCleaner.strategy = :transaction
 
 class ActiveSupport::TestCase
