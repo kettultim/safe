@@ -16,6 +16,7 @@ feature 'Admin Page Update' do
 
     fill_in 'Title', with: 'Foo'
     fill_in 'Body', with: 'Bar'
+    uncheck 'page_published'
 
     click_button 'Update Page'
 
@@ -28,6 +29,10 @@ feature 'Admin Page Update' do
 
   scenario 'it sets the page body' do
     @page.body.must_equal 'Bar'
+  end
+
+  scenario 'it unpublishes the page' do
+    @page.wont_be :published?
   end
 
   scenario 'it redirects to the page' do

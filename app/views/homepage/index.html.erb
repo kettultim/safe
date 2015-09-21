@@ -1,5 +1,5 @@
 <h1>welcome</h1>
 
-<% if current_user %>
+<% if user_signed_in? %>
   <p>logged in as <%= current_user.email %></p>
 <% end %>

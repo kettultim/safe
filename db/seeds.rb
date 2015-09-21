@@ -11,4 +11,5 @@ Page.destroy_all
 
 User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
 
-Page.create(title: 'Sample Page', body: 'Content goes here!')
+Page.create(title: 'Sample Page', body: 'Content goes here!', published: true)
+Page.create(title: 'Draft Page', body: 'Content goes here!', published: false)

@@ -3,10 +3,11 @@
 <%= link_to 'New Page', new_admin_page_path %>
 
 <%= admin_table_tag %>
-<tr><th>Title</th><th>Actions</th></tr>
+<tr><th>Title</th><th>Published?</th><th>Actions</th></tr>
   <% @pages.each do |page| %>
     <tr class="page-<%= page.id %>">
       <td><%= link_to page.title, page %></td>
+      <td><%= page.published ? 'Yes' : 'No' %></td>
       <td>
         <%= link_to 'Edit', edit_admin_page_path(page) %>
       </td>

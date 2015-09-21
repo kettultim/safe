@@ -11,6 +11,7 @@ feature 'Admin Page Creation' do
 
     fill_in 'Title', with: 'Foo'
     fill_in 'Body', with: 'Bar'
+    check 'page_published'
 
     click_button 'Create Page'
 
@@ -23,6 +24,10 @@ feature 'Admin Page Creation' do
 
   scenario 'it sets the page body' do
     @page.body.must_equal 'Bar'
+  end
+
+  scenario 'it publishes the page' do
+    @page.must_be :published?
   end
 
   scenario 'it redirects to the new page' do

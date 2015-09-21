@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_users_path, success: 'The user has been created.'
     else
-      flash.now[:warning] = 'The user could not be created.'
+      flash.now[:danger] = 'The user could not be created.'
       render :new
     end
   end
@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to admin_users_path, success: 'The user has been updated.'
     else
-      flash.now[:warning] = 'The user could not be updated.'
+      flash.now[:danger] = 'The user could not be updated.'
       render :edit
     end
   end
