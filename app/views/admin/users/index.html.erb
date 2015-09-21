@@ -1,12 +1,15 @@
 <% content_for :title, 'Users' %>
 
+<%= link_to 'New User', new_admin_user_path %>
+
 <%= admin_table_tag %>
   <tr><th>Email</th><th>Actions</th></tr>
   <% @users.each do |user| %>
-    <tr>
+    <tr class="user-<%= user.id %>">
       <td><%= user.email %></td>
-      <td></td>
+      <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
     </tr>
   <% end %>
 </table>
+
 <%= paginate @users %>

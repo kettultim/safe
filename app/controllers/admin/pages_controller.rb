@@ -28,7 +28,7 @@ class Admin::PagesController < ApplicationController
 
   def update
     if @page.update_attributes(page_params)
-      redirect_to page_path(@page), success: 'The page has been updated.'
+      redirect_to admin_pages_path, success: 'The page has been updated.'
     else
       flash.now[:warning] = 'The page could not be updated.'
       render :edit

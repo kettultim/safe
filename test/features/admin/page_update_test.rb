@@ -31,6 +31,6 @@ feature 'Admin Page Update' do
   end
 
   scenario 'it redirects to the page' do
-    current_path.must_equal page_path(@page)
+    current_path.must_equal admin_pages_path
   end
 end

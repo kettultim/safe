@@ -1,0 +1,6 @@
+<% content_for :title, 'Edit User' %>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+  <%= render 'form_fields' %>
+  <%= f.submit 'Update User', class: 'btn' %>
+<% end %>

@@ -1,0 +1,6 @@
+<% content_for :title, 'New User' %>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+  <%= render 'form_fields' %>
+  <%= f.submit 'Create User' %>
+<% end %>
