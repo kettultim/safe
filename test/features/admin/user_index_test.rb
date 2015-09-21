@@ -5,11 +5,11 @@ feature 'Admin User Management' do
 
   before do
     login_as admin
-
-    visit admin_users_path
+    visit root_path
+    click_link 'Users'
   end
 
   scenario 'it lists all users' do
-    page.must_have_content User.first.email
+    page.must_have_content(User.first.email)
   end
 end
