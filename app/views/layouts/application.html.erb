@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 101 Template</title>
+    <% title = yield(:title) %>
+    <title>Rails Starter<%= " - #{title}" unless title.empty? %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -25,14 +26,7 @@
     <div class="container" id="main">
       <h1><%= yield(:title) %></h1>
 
-      <% flash.each do |key, value| %>
-        <% key = 'success' if key == 'notice' %>
-        <% key = 'warning' if key == 'alert' %>
-        <div class="alert alert-<%= key %> alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= value %>
-        </div>
-      <% end %>
+      <%= render 'layouts/alerts' %>
 
       <%= yield %>
     </div>

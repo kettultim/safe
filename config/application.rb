@@ -27,5 +27,7 @@ module RailsStarter
     config.generators do |g|
       g.test_framework :minitest, spec: true, fixture: false
     end
+
+    config.autoload_paths << Rails.root.join('lib')
   end
 end

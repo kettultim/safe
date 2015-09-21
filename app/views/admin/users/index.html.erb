@@ -1,6 +1,6 @@
 <% content_for :title, 'Users' %>
 
-<table class="table table-bordered">
+<%= admin_table_tag %>
   <tr><th>Email</th><th>Actions</th></tr>
   <% @users.each do |user| %>
     <tr>

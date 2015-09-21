@@ -2,8 +2,8 @@
 
 <%= link_to 'New Page', new_admin_page_path %>
 
-<table class="table table-bordered">
-  <tr><th>Title</th><th>Actions</th></tr>
+<%= admin_table_tag %>
+<tr><th>Title</th><th>Actions</th></tr>
   <% @pages.each do |page| %>
     <tr class="page-<%= page.id %>">
       <td><%= page.title %></td>
