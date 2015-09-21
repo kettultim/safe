@@ -22,6 +22,9 @@ gem 'pundit', '1.0.1'
 # Pagination
 gem 'kaminari', '0.16.3'
 
+# Clean URLs
+gem 'friendly_id', '~> 5.1.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -46,6 +49,7 @@ group :development, :test do
   gem 'pry', '0.10.1'
   gem 'minitest-rails', '2.2.0'
   gem 'factory_girl_rails'
+  gem 'faker', '1.5.0'
 end
 
 group :development do

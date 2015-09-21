@@ -1,0 +1,13 @@
+<% content_for :title, 'Pages' %>
+
+<table class="table table-bordered">
+  <tr><th>Title</th><th>Actions</th></tr>
+  <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @pages %>

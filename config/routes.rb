@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   root 'homepage#index'
 
+  resources :pages, only: [:show]
+
   namespace :admin do
     resources :users, only: [:index]
+    resources :pages, only: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
