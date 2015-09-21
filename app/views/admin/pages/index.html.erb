@@ -1,5 +1,7 @@
 <% content_for :title, 'Pages' %>
 
+<%= link_to 'New Page', new_admin_page_path %>
+
 <table class="table table-bordered">
   <tr><th>Title</th><th>Actions</th></tr>
   <% @pages.each do |page| %>

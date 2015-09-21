@@ -21,9 +21,10 @@ gem 'devise', '3.5.2'
 gem 'pundit', '1.0.1'
 # Pagination
 gem 'kaminari', '0.16.3'
-
 # Clean URLs
 gem 'friendly_id', '~> 5.1.0'
+
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

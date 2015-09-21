@@ -1,0 +1,7 @@
+<% content_for :title, 'New Page' %>
+
+<%= simple_form_for @page, url: admin_pages_path do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.submit 'Create Page' %>
+<% end %>

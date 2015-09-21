@@ -7,5 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Page.destroy_all
 
 User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
+
+Page.create(title: 'Sample Page', body: 'Content goes here!')
