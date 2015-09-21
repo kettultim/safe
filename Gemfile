@@ -24,7 +24,7 @@ gem 'kaminari', '0.16.3'
 # Clean URLs
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'simple_form'
+gem 'simple_form', '3.1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
