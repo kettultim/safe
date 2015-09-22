@@ -43,6 +43,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:title, :body, :published)
+    params[:page][:slug] = nil if params[:page][:slug].to_s.empty?
+    params.require(:page).permit(:title, :body, :layout, :published, :slug)
   end
 end

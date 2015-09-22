@@ -5,6 +5,7 @@ feature 'Admin Page Update' do
 
   before do
     @page = create(:page)
+    @slug = @page.slug
 
     login_as admin
     visit root_path
@@ -33,6 +34,10 @@ feature 'Admin Page Update' do
 
   scenario 'it unpublishes the page' do
     @page.wont_be :published?
+  end
+
+  scenario 'it does not change the slug' do
+    @page.slug.must_equal @slug
   end
 
   scenario 'it redirects to the page' do

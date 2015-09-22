@@ -20,15 +20,20 @@
 
     <%= csrf_meta_tags %>
   </head>
-  <body class="layout-application">
+  <body class="layout-page-with-right-sidebar">
     <%= render 'layouts/nav' %>
 
     <div class="container" id="main">
-      <h1><%= yield(:title) %></h1>
-
-      <%= render 'layouts/alerts' %>
-
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-9">
+          <h1><%= yield(:title) %></h1>
+          <%= render 'layouts/alerts' %>
+          <%= yield %>
+        </div>
+        <div class="col-md-3">
+          Sidebar
+        </div>
+      </div>
     </div>
   </body>
 </html>

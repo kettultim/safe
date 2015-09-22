@@ -3,7 +3,15 @@
     <%= f.input :title %>
   </div>
   <div class="form-group">
-    <%= f.input :body %>
+    <%= f.input :body, as: :wysihtml5 %>
+  </div>
+  <div class="form-group">
+    <%= f.input :layout, collection: layout_select %>
+  </div>
+  <div class="form-group">
+    <%= f.input :slug %>
+    <p class="help-block">Leave blank to regenerate the url slug from the page
+      title.</p>
   </div>
   <div class="form-group">
     <%= f.check_box :published %> <%= f.label 'Published' %>

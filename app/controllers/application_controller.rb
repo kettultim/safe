@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  protect_from_forgery with: :exception
-  add_flash_types :success, :info, :warning, :danger
-
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  protect_from_forgery with: :exception
+
+  add_flash_types :success, :info, :warning, :danger
 
   def current_user
     super || NullUser.new

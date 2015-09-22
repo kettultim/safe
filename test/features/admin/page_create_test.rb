@@ -12,6 +12,7 @@ feature 'Admin Page Creation' do
     fill_in 'Title', with: 'Foo'
     fill_in 'Body', with: 'Bar'
     check 'page_published'
+    select 'Default', from: 'Layout'
 
     click_button 'Create Page'
 
@@ -24,6 +25,10 @@ feature 'Admin Page Creation' do
 
   scenario 'it sets the page body' do
     @page.body.must_equal 'Bar'
+  end
+
+  scenario 'it sets the layout' do
+    @page.layout.must_equal LAYOUTS['Default']
   end
 
   scenario 'it publishes the page' do

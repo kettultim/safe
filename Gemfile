@@ -23,8 +23,10 @@ gem 'pundit', '1.0.1'
 gem 'kaminari', '0.16.3'
 # Clean URLs
 gem 'friendly_id', '~> 5.1.0'
-
+# Form Helper
 gem 'simple_form', '3.1.1'
+# WYSIWYG Editor
+gem 'bootstrap-wysihtml5-rails', '0.3.3.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -66,4 +68,5 @@ group :test do
   gem 'minitest-reporters'
   gem 'database_cleaner', '1.5.0'
   gem 'launchy', '2.4.3'
+  gem 'shoulda'
 end
