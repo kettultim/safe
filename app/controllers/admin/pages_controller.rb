@@ -1,5 +1,5 @@
 class Admin::PagesController < ApplicationController
-  before_filter :load_and_authorize_page, only: [:edit, :update]
+  before_filter :load_and_authorize_page, only: [:edit, :update, :destroy]
 
   def index
     authorize Page
@@ -33,6 +33,11 @@ class Admin::PagesController < ApplicationController
       flash.now[:danger] = 'The page could not be updated.'
       render :edit
     end
+  end
+
+  def destroy
+    @page.destroy
+    redirect_to admin_pages_path, success: 'The page has been deleted.'
   end
 
   private
