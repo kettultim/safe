@@ -1,0 +1,6 @@
+<% content_for :title, 'Edit Menu Item' %>
+
+<%= simple_form_for [:admin, @menu_item] do |f| %>
+  <%= render 'form_fields' %>
+  <%= f.submit 'Update Menu Item', class: 'btn' %>
+<% end %>

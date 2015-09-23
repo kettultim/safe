@@ -1,0 +1,11 @@
+<% content_for :title, 'Menus' %>
+
+<%= admin_table_tag %>
+<tr><th>Menu</th><th>Actions</th></tr>
+  <% @menus.each do |menu| %>
+    <tr class="menu-<%= menu.id %>">
+      <td><%= menu.name %></td>
+      <td><%= link_to 'Manage Items', admin_menu_items_path(menu) %></td>
+    </tr>
+  <% end %>
+</table>

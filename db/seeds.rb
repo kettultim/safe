@@ -8,6 +8,7 @@
 
 User.destroy_all
 Page.destroy_all
+Menu.destroy_all
 
 User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
 
@@ -19,3 +20,7 @@ Page.create(
   published: false,
   layout: 'page_with_right_sidebar'
 )
+
+@menu = Menu.create(name: 'Main Menu', key: 'main')
+@menu.items << MenuItem.new(link_label: 'Item One', link_url: 'http://google.com')
+@menu.items << MenuItem.new(link_label: 'Item Two', link_url: '/')
