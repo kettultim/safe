@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     resources :users
     resources :pages
     resources :menus, only: [:index] do
-      resources :items, only: [:index], controller: 'menu_items'
+      resources :items, only: [:index, :new, :create], controller: 'menu_items'
     end
-    resources :menu_items
+    resources :menu_items, only: [:edit, :update, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

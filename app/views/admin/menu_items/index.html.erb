@@ -1,5 +1,7 @@
 <% content_for :title, @menu.name %>
 
+<%= link_to 'New Menu Item', new_admin_menu_item_path(@menu) %>
+
 <%= admin_table_tag %>
 <tr><th>Label</th><th>Link</th><th>Weight</th><th>Actions</th></tr>
   <% @menu_items.each do |menu_item| %>
@@ -7,7 +9,11 @@
       <td><%= menu_item.link_label %></td>
       <td><%= menu_item.link_url %></td>
       <td><%= menu_item.weight %></td>
-      <td><%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %>
+        <%= link_to 'Delete', admin_menu_item_path(menu_item), method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+      </td>
     </tr>
   <% end %>
 </table>
