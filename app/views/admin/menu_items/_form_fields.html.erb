@@ -1,5 +1,8 @@
 <%= admin_fields_for @menu_item do |f| %>
   <div class="form-group">
+    <%= f.input :parent_id, label: 'Parent', collection: menu_item_select(@menu_item) %>
+  </div>
+  <div class="form-group">
     <%= f.input :link_label %>
   </div>
   <div class="form-group">

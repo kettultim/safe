@@ -1,20 +1,17 @@
 class Admin::MenuItemsController < ApplicationController
+  before_filter :load_menu, only: [:new, :create, :index]
+  before_filter :build_menu_item, only: [:new, :create]
+  before_filter :load_menu_item, only: [:edit, :update, :destroy]
+
   def index
-    @menu = Menu.find(params[:menu_id])
     @menu_items = @menu.items.ordered.all
     authorize MenuItem
   end
 
-  def new
-    @menu = Menu.find(params[:menu_id])
-    @menu_item = @menu.items.build
-    authorize @menu_item
-  end
+  def new; end
 
   def create
-    @menu = Menu.find(params[:menu_id])
-    @menu_item = @menu.items.build(menu_item_params)
-    authorize @menu_item
+    @menu_item.assign_attributes(menu_item_params)
 
     if @menu_item.save
       redirect_to(
@@ -27,15 +24,9 @@ class Admin::MenuItemsController < ApplicationController
     end
   end
 
-  def edit
-    @menu_item = MenuItem.find(params[:id])
-    authorize @menu_item
-  end
+  def edit; end
 
   def update
-    @menu_item = MenuItem.find(params[:id])
-    authorize @menu_item
-
     if @menu_item.update_attributes(menu_item_params)
       redirect_to(
         admin_menu_items_path(@menu_item.menu),
@@ -48,9 +39,6 @@ class Admin::MenuItemsController < ApplicationController
   end
 
   def destroy
-    @menu_item = MenuItem.find(params[:id])
-    authorize @menu_item
-
     @menu_item.destroy
 
     redirect_to(
@@ -62,6 +50,21 @@ class Admin::MenuItemsController < ApplicationController
   private
 
   def menu_item_params
-    params.require(:menu_item).permit(:link_label, :link_url, :weight)
+    params.require(:menu_item).permit(:link_label, :link_url, :weight,
+      :parent_id)
+  end
+
+  def load_menu
+    @menu = Menu.find(params[:menu_id])
+  end
+
+  def load_menu_item
+    @menu_item = MenuItem.find(params[:id])
+    authorize @menu_item
+  end
+
+  def build_menu_item
+    @menu_item = @menu.items.build
+    authorize @menu_item
   end
 end
