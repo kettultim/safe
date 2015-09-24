@@ -1,6 +1,6 @@
 class Admin::MenusController < ApplicationController
   def index
-    authorize Menu
     @menus = Menu.order(:name).all
+    authorize @menus
   end
 end

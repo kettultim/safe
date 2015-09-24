@@ -1,20 +1,15 @@
 class Admin::UsersController < ApplicationController
   before_filter :load_and_authorize_user, only: [:edit, :update]
+  before_filter :build_and_authorize_user, only: [:new, :create]
 
   def index
-    authorize User
     @users = User.order(:email).page params[:page]
+    authorize @users
   end
 
-  def new
-    @user = User.new
-    authorize @user
-  end
+  def new; end
 
   def create
-    @user = User.new(user_params)
-    authorize @user
-
     if @user.save
       redirect_to admin_users_path, success: 'The user has been created.'
     else
@@ -23,8 +18,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update_attributes(user_params)
@@ -42,7 +36,14 @@ class Admin::UsersController < ApplicationController
     authorize @user
   end
 
+  def build_and_authorize_user
+    @user = User.new(user_params)
+    authorize @user
+  end
+
   def user_params
+    return {} unless params[:user]
+
     p = params.require(:user).permit(:email, :password)
     p.delete(:password) if p[:password].empty?
     p

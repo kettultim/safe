@@ -2,7 +2,8 @@ class MenuItem < ActiveRecord::Base
   belongs_to :menu
   belongs_to :parent, class_name: 'MenuItem'
 
-  has_many :items, foreign_key: :parent_id, class_name: 'MenuItem'
+  has_many :items, foreign_key: :parent_id, class_name: 'MenuItem',
+  dependent: :destroy
 
   validates_presence_of :link_label
   validates_presence_of :link_url
@@ -12,24 +13,17 @@ class MenuItem < ActiveRecord::Base
   scope :ordered, ->{ order(:weight) }
   scope :top_level, ->{ where(parent_id: nil) }
 
-  before_validation :assign_menu_id
   before_validation :assign_weight
 
   private
 
   def assign_weight
-    if menu && !weight
-      if parent
-        self.weight = menu.items.where(level: level).count + 1
-      else
-        self.weight = menu.items.top_level.count + 1
-      end
-    end
-  end
+    return if weight
 
-  def assign_menu_id
-    if !menu && parent
-      self.menu = parent.menu
+    if parent
+      self.weight = parent.items.count + 1
+    elsif menu
+      self.weight = menu.items.top_level.count + 1
     end
   end
 end
