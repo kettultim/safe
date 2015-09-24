@@ -4,7 +4,7 @@ class Admin::MenuItemsController < ApplicationController
   before_filter :load_menu_item, only: [:edit, :update, :destroy]
 
   def index
-    @menu_items = @menu.items.ordered.all
+    @menu_items = @menu.items.top_level.ordered
     authorize MenuItem
   end
 
