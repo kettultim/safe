@@ -1,4 +1,5 @@
 class MenuItem < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :menu
   belongs_to :parent, class_name: 'MenuItem'
 

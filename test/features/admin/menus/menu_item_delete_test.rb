@@ -29,6 +29,10 @@ feature 'Admin Update Menu Item' do
     MenuItem.find_by_id(@menu_item.id).must_equal nil
   end
 
+  scenario 'it soft deletes the item' do
+    MenuItem.only_deleted.find_by_id(@menu_item.id).must_equal @menu_item
+  end
+
   scenario 'it redirects to the menu item index' do
     current_path.must_equal admin_menu_items_path(@menu)
   end
