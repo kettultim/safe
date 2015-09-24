@@ -5,6 +5,10 @@
 <%= admin_table_tag %>
 <tr><th>Label</th><th>Link</th><th>Weight</th><th>Actions</th></tr>
   <% @menu_items.each do |menu_item| %>
-    <%= render partial: 'item_and_sub_items', locals: { menu_item: menu_item } %>
+    <%= render partial: 'table_row', locals: { menu_item: menu_item } %>
+
+    <% menu_item.items.ordered.each do |menu_item| %>
+      <%= render partial: 'table_row', locals: { menu_item: menu_item } %>
+    <% end %>
   <% end %>
 </table>

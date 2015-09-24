@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+  alias_method :admin, :admin?
 end

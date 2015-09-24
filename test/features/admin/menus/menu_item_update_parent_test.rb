@@ -4,13 +4,16 @@ feature 'Admin Update Menu Item Parent' do
   let(:admin) { create(:admin) }
 
   before do
-    @menu = create(:three_level_menu)
+    @menu = create(:two_level_menu)
     @menu_item = @menu.items.top_level.first
     @parent = @menu.items.top_level.second
 
     login_as admin
     visit admin_index_path
-    click_link 'Menus'
+
+    within '#main' do
+      click_link 'Menus'
+    end
 
     within ".menu-#{@menu.id}" do
       click_link 'Manage Items'

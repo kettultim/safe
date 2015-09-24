@@ -8,7 +8,7 @@ FactoryGirl.define do
     items { build_list :menu_item, 3 }
   end
 
-  factory :three_level_menu, parent: :menu do
-    items { build_list :menu_item_with_two_sub_levels, 3 }
+  factory :two_level_menu, parent: :menu do
+    items { build_list :menu_item_with_one_sub_level, 3 }
   end
 end

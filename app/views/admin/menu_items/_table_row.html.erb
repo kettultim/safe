@@ -1,9 +1,8 @@
 <tr class="menu-item-<%= menu_item.id %>">
   <td>
-    <% menu_item.level.times do %>
+    <% if menu_item.parent %>
       &nbsp;&nbsp;&nbsp;
     <% end %>
-
     <%= menu_item.link_label %>
   </td>
   <td><%= menu_item.link_url %></td>
@@ -14,7 +13,3 @@
         data: { confirm: 'Are you sure?' } %>
   </td>
 </tr>
-
-<% menu_item.items.ordered.each do |menu_item| %>
-  <%= render partial: 'item_and_sub_items', locals: { menu_item: menu_item } %>
-<% end %>

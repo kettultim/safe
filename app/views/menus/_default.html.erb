@@ -1,0 +1,16 @@
+<ul class="nav navbar-nav">
+  <% menu.items.top_level.ordered.each do |menu_item| %>
+    <% if menu_item.items.count > 0 %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= menu_item.link_label %> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <% menu_item.items.ordered.each do |menu_item| %>
+            <li><a href="<%= menu_item.link_url %>"><%= menu_item.link_label %></a></li>
+          <% end %>
+        </ul>
+      </li>
+      <% else %>
+        <li><a href="<%= menu_item.link_url %>"><%= menu_item.link_label %></a></li>
+      <% end %>
+  <% end %>
+</ul>

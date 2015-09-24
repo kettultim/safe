@@ -13,24 +13,9 @@ class MenuItem < ActiveRecord::Base
   scope :top_level, ->{ where(parent_id: nil) }
 
   before_validation :assign_menu_id
-  before_validation :calculate_level
   before_validation :assign_weight
 
-  def children
-    result = []
-
-    items.ordered.each do |item|
-      result << [item, item.children]
-    end
-
-    result
-  end
-
   private
-
-  def calculate_level
-    self.level = (parent_id == nil) ? 0 : 1 + parent.level
-  end
 
   def assign_weight
     if menu && !weight

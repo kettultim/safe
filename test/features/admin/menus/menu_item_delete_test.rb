@@ -9,7 +9,10 @@ feature 'Admin Update Menu Item' do
 
     login_as admin
     visit admin_index_path
-    click_link 'Menus'
+
+    within '#main' do
+      click_link 'Menus'
+    end
 
     within ".menu-#{@menu.id}" do
       click_link 'Manage Items'

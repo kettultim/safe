@@ -11,9 +11,10 @@
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-      </ul>
+      <% if @main_menu %>
+        <%= render partial: "menus/default", locals: { menu: @main_menu } %>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
@@ -25,6 +26,7 @@
                 <li><%= link_to 'Dashboard', admin_index_path %></li>
                 <li><%= link_to 'Users', admin_users_path %></li>
                 <li><%= link_to 'Pages', admin_pages_path %></li>
+                <li><%= link_to 'Menus', admin_menus_path %></li>
               </ul>
             </li>
           <% end %>

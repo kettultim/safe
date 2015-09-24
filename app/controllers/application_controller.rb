@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  before_filter :load_menus
+
   add_flash_types :success, :info, :warning, :danger
 
   def current_user
@@ -15,11 +17,14 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    return admin_index_path if user.admin?
-    super
+    user.admin ? admin_index_path : super
   end
 
   def user_not_authorized
     redirect_to root_path, danger: "You can't do that!"
+  end
+
+  def load_menus
+    @main_menu = Menu.find_by_key('main')
   end
 end
