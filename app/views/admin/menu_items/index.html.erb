@@ -7,8 +7,8 @@
   <% @menu_items.each do |menu_item| %>
     <%= render partial: 'table_row', locals: { menu_item: menu_item } %>
 
-    <% menu_item.items.ordered.each do |menu_item| %>
-      <%= render partial: 'table_row', locals: { menu_item: menu_item } %>
-    <% end %>
+    <%= render partial: 'table_row', collection: menu_item.items.ordered,
+        as: :menu_item %>
+
   <% end %>
 </table>
