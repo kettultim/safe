@@ -10,6 +10,6 @@
   <td>
     <%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %>
     <%= link_to 'Delete', admin_menu_item_path(menu_item), method: :delete,
-        data: { confirm: 'Are you sure?' } %>
+        data: { confirm: 'Are you sure? All nested items will also be deleted!' } %>
   </td>
 </tr>

@@ -1,8 +1,7 @@
 module ApplicationHelper
   def role_select
     User.roles.map { |role|
-      # ['Admin', 'admin']
-      [role.to_s.titleize, role]
+      [role.to_s.titleize, role] # => ['Admin', 'admin']
     }
   end
 end
