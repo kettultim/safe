@@ -35,7 +35,7 @@ feature 'Admin Page Creation' do
     @page.must_be :published?
   end
 
-  scenario 'it redirects to the new page' do
-    current_path.must_equal page_path(@page)
+  scenario 'it redirects to the index' do
+    current_path.must_equal admin_pages_path
   end
 end
