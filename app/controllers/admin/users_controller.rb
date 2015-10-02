@@ -1,7 +1,7 @@
-class Admin::UsersController < Admin::ResourcesController
-  resource type: 'user', klass: User, allow: [:email, :password, :role]
+class Admin::UsersController < Admin::ResourceController
+  crud attributes: [:email, :password, :role]
 
-  def before_assigning_parameters
+  def before_processing_parameters
     params[:user].delete(:password) if params[:user][:password].empty?
   end
 end

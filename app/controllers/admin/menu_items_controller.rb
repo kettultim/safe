@@ -1,28 +1,19 @@
-class Admin::MenuItemsController < Admin::ResourcesController
-  resource(
-    type: 'menu_item',
-    klass: MenuItem,
-    allow: [:link_label, :link_url, :weight, :parent_id]
-  )
+class Admin::MenuItemsController < Admin::ResourceController
+  crud attributes: [:link_label, :link_url, :weight, :parent_id]
 
-  def load_resources_for_index
-    @menu_items = menu.items.top_level.ordered
+  def find_resources
+    menu.items.top_level.ordered
   end
 
   def menu
-    @menu ||=
-      if params[:menu_id]
-        Menu.find(params[:menu_id])
-      else
-        menu_item.menu
-      end
+    @menu ||= params[:menu_id] && Menu.find(params[:menu_id]) || menu_item.menu
   end
 
-  def after_build_resource
+  def after_building_resource
     @menu_item.menu_id = menu.id
   end
 
-  def admin_resources_path
-    admin_menu_items_path(menu)
+  def index_path
+    admin_menu_items_path menu
   end
 end

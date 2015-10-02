@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
+  include ResourceAccessor
+  configure_resource
+
   def show
-    @page = Page.friendly.find(params[:id])
+    load_resource(params[:id])
     authorize @page
 
     if !@page.published?
