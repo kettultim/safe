@@ -16,7 +16,7 @@ feature 'Admin updates a user' do
     end
 
     fill_in 'Email', with: 'blah@blah.com'
-    select '', from: 'Role'
+    select 'Host', from: 'Role'
     click_button 'Update User'
 
     @user.reload
@@ -27,7 +27,7 @@ feature 'Admin updates a user' do
   end
 
   scenario 'it updates the role' do
-    @user.role.must_equal ''
+    @user.role.must_equal 'host'
   end
 
   scenario 'it does not change the password' do

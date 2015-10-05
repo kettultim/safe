@@ -2,7 +2,7 @@ require 'test_helper'
 
 feature 'Admin User Management' do
   let(:admin) { create(:admin) }
-  let(:user) { create(:user, role: 'tomato') }
+  let(:user) { create(:user) }
 
   before do
     user

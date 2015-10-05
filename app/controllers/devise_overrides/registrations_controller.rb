@@ -3,6 +3,7 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
+      u[:role] = '' unless User.sign_up_roles.include? u[:role]
       u.permit(:role, :email, :password, :password_confirmation)
     end
   end

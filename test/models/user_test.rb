@@ -1,6 +1,8 @@
 require "test_helper"
 
 describe User do
+  should validate_presence_of :role
+
   let(:user) { build(:admin) }
 
   it 'it has admin role' do
@@ -8,8 +10,8 @@ describe User do
   end
 
   describe '.Roles' do
-    specify { User.roles.must_include :admin }
-    specify { User.roles.must_include :guest }
-    specify { User.roles.must_include :host }
+    specify { User.roles.must_include 'admin' }
+    specify { User.roles.must_include 'guest' }
+    specify { User.roles.must_include 'host' }
   end
 end
