@@ -1,0 +1,6 @@
+<% content_for :title, 'Edit Space' %>
+
+<%= simple_form_for @space do |f| %>
+  <%= render 'form_fields' %>
+  <%= f.submit 'Update Space', class: 'btn' %>
+<% end %>

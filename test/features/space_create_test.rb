@@ -1,6 +1,6 @@
 require 'test_helper'
 
-feature 'Property creation' do
+feature 'Space creation' do
   let(:user) { create(:host) }
 
   scenario 'Host creates a property' do
