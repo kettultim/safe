@@ -11,5 +11,13 @@ FactoryGirl.define do
     factory :admin do
       role 'admin'
     end
+
+    factory :guest do
+      role 'guest'
+    end
+
+    factory :host do
+      role 'host'
+    end
   end
 end

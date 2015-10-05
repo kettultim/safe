@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924153041) do
+ActiveRecord::Schema.define(version: 20151005170650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20150924153041) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "guest_profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.text     "story"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "host_profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.integer  "menu_id"
@@ -77,6 +92,8 @@ ActiveRecord::Schema.define(version: 20150924153041) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "role"
+    t.integer  "profile_id"
+    t.string   "profile_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
