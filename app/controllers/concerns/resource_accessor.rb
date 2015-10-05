@@ -3,7 +3,11 @@ module ResourceAccessor
 
   class_methods do
     def configure_resource klass = nil, attr: nil
-      klass = controller_name.classify.constantize unless klass
+      begin
+        klass = controller_name.classify.constantize
+      rescue
+        klass = nil
+      end
 
       attr = klass.name.demodulize.underscore unless attr
 

@@ -30,6 +30,8 @@ gem 'simple_form', '3.1.1'
 gem 'bootstrap-wysihtml5-rails', '0.3.3.7'
 # Soft deletion
 gem "paranoia", '2.1.3'
+# Countries
+gem 'country_select', '2.4.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.5'

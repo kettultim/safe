@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::ResourceController
+class Admin::UsersController < ResourceController
   crud attributes: [:email, :password, :role]
 
   def before_processing_parameters

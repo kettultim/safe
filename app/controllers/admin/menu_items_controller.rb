@@ -1,4 +1,4 @@
-class Admin::MenuItemsController < Admin::ResourceController
+class Admin::MenuItemsController < ResourceController
   crud attributes: [:link_label, :link_url, :weight, :parent_id]
 
   def find_resources
@@ -13,7 +13,7 @@ class Admin::MenuItemsController < Admin::ResourceController
     @menu_item.menu_id = menu.id
   end
 
-  def index_path
+  def return_path
     admin_menu_items_path menu
   end
 end

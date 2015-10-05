@@ -1,4 +1,4 @@
-class Admin::PagesController < Admin::ResourceController
+class Admin::PagesController < ResourceController
   crud attributes: [:title, :body, :layout, :published, :slug]
 
   def before_processing_parameters

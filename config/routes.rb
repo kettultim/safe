@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:show]
 
+  resource :profile, only: [:edit, :update]
+
   resources :admin, only: [:index]
 
   namespace :admin do

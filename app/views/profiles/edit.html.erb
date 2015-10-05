@@ -1,0 +1,6 @@
+<% content_for :title, 'Edit Profile' %>
+
+<%= simple_form_for @profile, url: profile_path(@profile) do |f| %>
+  <%= render current_user.role, locals: { f: f } %>
+  <%= f.submit 'Update Profile', class: 'btn' %>
+<% end %>

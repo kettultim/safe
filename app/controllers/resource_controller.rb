@@ -1,4 +1,4 @@
-class Admin::ResourceController < ApplicationController
+class ResourceController < ApplicationController
   include ResourceAccessor
 
   before_filter :load_and_authorize_resources, only: [:index]
@@ -23,7 +23,7 @@ class Admin::ResourceController < ApplicationController
 
   def create
     if resource.save
-      redirect_to index_path, success: "The #{resource_attr} as been created."
+      redirect_to return_path, success: "The #{resource_attr} as been created."
     else
       flash.new[:danger] = "The #{resource_attr} could not be created."
     end
@@ -31,7 +31,7 @@ class Admin::ResourceController < ApplicationController
 
   def update
     if resource.update_attributes(resource_params)
-      redirect_to index_path, success: "The #{resource_attr} has been updated."
+      redirect_to return_path, success: "The #{resource_attr} has been updated."
     else
       flash.new[:danger] = "The #{resource_attr} could not be updated."
       render :edit
@@ -40,12 +40,12 @@ class Admin::ResourceController < ApplicationController
 
   def destroy
     resource.destroy
-    redirect_to index_path, success: "The #{resource_attr} has been deleted."
+    redirect_to return_path, success: "The #{resource_attr} has been deleted."
   end
 
   private
 
-  def index_path
+  def return_path
     send "admin_#{resource_attr.to_s.pluralize}_path"
   end
 
