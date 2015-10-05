@@ -41,26 +41,45 @@ module ResourceAccessor
     self.resources = find_resources
   end
 
+  def load_and_authorize_resources
+    load_resources
+    authorize_resources
+  end
+
   def find_resources
     resource_class.all
   end
 
   def load_resource(id)
-    if resource_friendly?
-      self.resource = resource_class.friendly.find id
-    else
-      self.resource = resource_class.find id
-    end
-
+    self.resource = find_resource id
     after_loading_resource
   end
 
-  def after_loading_resource; end
+  def load_and_authorize_resource(id)
+    load_resource id
+    authorize_resource
+  end
+
+  def find_resource(id)
+    if resource_friendly?
+      resource_class.friendly.find id
+    else
+      resource_class.find id
+    end
+  end
 
   def build_resource(params)
     self.resource = resource_class.new params
     after_building_resource
   end
 
+  def build_and_authorize_resource(params)
+    build_resource params
+    authorize_resource
+  end
+
+  def authorize_resource; end
+  def authorize_resources; end
+  def after_loading_resource; end
   def after_building_resource; end
 end
