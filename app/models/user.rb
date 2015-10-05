@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :role, inclusion: { in: ROLES }, presence: true
 
   belongs_to :profile, polymorphic: true
+  has_many :spaces
 
   after_create do |u|
     if u.guest?

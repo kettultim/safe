@@ -1,0 +1,14 @@
+<% content_for :title, 'Host Dashboard' %>
+
+<%= link_to 'Add a Space', new_space_path %>
+
+<%= admin_table_tag %>
+<tr><th>Property Name</th><th>Country</th><th>Actions</th></tr>
+<%= @spaces.each do |space| %>
+
+<tr class="space-<%= space.id %>">
+    <td><%= space.name %></td>
+    <td><%= space.country %></td>
+    <td> - </td>
+  </tr>
+<% end %>

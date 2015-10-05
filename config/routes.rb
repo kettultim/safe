@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :pages, only: [:show]
+  resources :spaces, only: [:new, :create, :edit, :update, :index]
 
   resource :profile, only: [:edit, :update]
 
   resources :admin, only: [:index]
+
+  resource :host_dashboard, only: [:show]
 
   namespace :admin do
     resources :users
