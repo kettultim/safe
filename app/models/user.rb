@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = [:admin]
+  ROLES = [:admin, :host, :guest]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
