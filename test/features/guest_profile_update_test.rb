@@ -11,6 +11,7 @@ feature 'guest profile update' do
     fill_in 'Name', with: 'Bob'
     select 'United States', from: 'Country'
     fill_in 'Story', with: 'blah'
+    attach_file 'Photo', test_image
     click_button 'Update Profile'
 
     current_path.must_equal edit_profile_path
@@ -19,5 +20,6 @@ feature 'guest profile update' do
     user.profile.name.must_equal 'Bob'
     user.profile.country.must_equal 'US'
     user.profile.story.must_equal 'blah'
+    user.profile.photo.exists?.must_equal true
   end
 end

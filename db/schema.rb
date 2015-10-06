@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005195958) do
+ActiveRecord::Schema.define(version: 20151006172931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,15 +33,23 @@ ActiveRecord::Schema.define(version: 20151005195958) do
     t.string   "name"
     t.string   "country"
     t.text     "story"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "host_profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "menu_items", force: :cascade do |t|
@@ -77,6 +85,16 @@ ActiveRecord::Schema.define(version: 20151005195958) do
 
   add_index "pages", ["deleted_at"], name: "index_pages_on_deleted_at", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
+
+  create_table "space_photos", force: :cascade do |t|
+    t.integer  "space_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "user_id"

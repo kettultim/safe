@@ -9,6 +9,9 @@
 <tr class="space-<%= space.id %>">
     <td><%= space.name %></td>
     <td><%= space.country %></td>
-    <td><%= link_to 'Edit', edit_space_path(space) %></td>
+    <td>
+      <%= link_to 'Edit', edit_space_path(space) %>
+      <%= link_to 'Manage Photos', space_photos_path(space) %>
+    </td>
   </tr>
 <% end %>

@@ -6,12 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all
-Page.destroy_all
-Menu.destroy_all
-
 admin = User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
 host = User.create(email: 'host@test.com', password: 'testing12345', role: 'host')
+
+binding.pry
 
 Page.create(title: 'Sample Page', body: 'Content goes here!', published: true)
 

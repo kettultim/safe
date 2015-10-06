@@ -1,0 +1,11 @@
+<% content_for :title, "Photos of #{@space.name}" %>
+
+<%= link_to 'Add New Photo', new_space_photo_path(@space) %>
+
+<div class="row">
+  <%= @space_photos.each do |photo| %>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <%= photo.image.url(:medium) %>
+    </div>
+  <% end %>
+</div>
