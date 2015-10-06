@@ -5,6 +5,10 @@ class PhotosController < ResourceController
     space.photos.all
   end
 
+  def authorize_resources
+    SpacePolicy.new(current_user, @space).update?
+  end
+
   def space
     @space ||= (params[:space_id] && Space.find(params[:space_id])) || space_photo.space
   end

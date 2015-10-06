@@ -4,8 +4,14 @@
 
 <div class="row">
   <%= @space_photos.each do |photo| %>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <%= photo.image.url(:medium) %>
+    <div class="col-sm-4 col-md-4 col-lg-4 space-photo-<%= photo.id %>">
+      <%= photo.url(:medium) %>
+
+      <%= link_to(
+          'Delete',
+          space_photo_path(@space, photo),
+          method: :delete,
+          confirm: 'Are you sure?') %>
     </div>
   <% end %>
 </div>

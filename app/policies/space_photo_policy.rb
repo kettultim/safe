@@ -3,17 +3,11 @@ class SpacePhotoPolicy < ApplicationPolicy
     record.space.user == user
   end
 
-  def update?
-    record.user == user
+  def destroy?
+    record.space.user == user
   end
 
   def show?
-    return true
-    !(NullUser === user)
-  end
-
-  def index?
-    return true
-    !(NullUser === user)
+    true
   end
 end

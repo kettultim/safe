@@ -18,10 +18,12 @@ feature 'Space photo upload' do
     click_button 'Upload'
 
     space.reload
+
+    @photo = space.photos.last
   end
 
   scenario 'it creates the photo' do
-    space.photos.last.image.exists?.must_equal true
+    @photo.image.exists?.must_equal true
   end
 
   scenario 'it redirects to the images page' do
@@ -29,6 +31,18 @@ feature 'Space photo upload' do
   end
 
   scenario 'it displays the photo' do
-    page.body.must_include space.photos.last.url(:medium)
+    page.body.must_include @photo.url(:medium)
+  end
+
+  scenario 'it can be deleted' do
+    within ".space-photo-#{@photo.id}" do
+      click_link 'Delete'
+    end
+
+    page.current_path.must_equal space_photos_path(space)
+    page.body.wont_include @photo.url(:medium)
+
+    space.reload
+    space.photos.all.wont_include @photo
   end
 end
