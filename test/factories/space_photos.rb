@@ -1,7 +1,5 @@
 FactoryGirl.define do
   factory :space_photo do
-    space_id 1
-image ""
+    image File.open("#{Rails.root}/test/resources/test.jpg")
   end
-
 end
