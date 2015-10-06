@@ -1,5 +1,7 @@
 <% content_for :title, 'New Photo' %>
 
+<%= link_to 'Back to Photos', space_photos_path(@space) %>
+
 <%= simple_form_for @space_photo do |f| %>
   <div class="form-group">
     <%= f.input :image %>

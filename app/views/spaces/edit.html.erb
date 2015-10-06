@@ -1,5 +1,7 @@
 <% content_for :title, 'Edit Space' %>
 
+<%= link_to 'Back to Dashboard', host_dashboard_path %>
+
 <%= simple_form_for @space do |f| %>
   <%= render 'form_fields' %>
   <%= f.submit 'Update Space', class: 'btn btn-default' %>
