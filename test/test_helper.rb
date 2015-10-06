@@ -15,6 +15,10 @@ def test_password
   'testing12345'
 end
 
+def test_image
+  Rails.root + 'test/resources/test.jpg'
+end
+
 def login(user)
   visit root_path
   click_link 'Login'

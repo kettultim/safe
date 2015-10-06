@@ -4,6 +4,9 @@
       <h3 class="panel-title"><%= space.country_name %></h3>
     </div>
     <div class="panel-body">
+      <% if space.has_photo? %>
+        <%= image_tag space.main_photo.url(:medium) %>
+      <% end %>
       <h4><%= link_to space.name, space %></h4>
       <p>
         <%= truncate(space.description, length: 100) %>

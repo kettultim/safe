@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :pages, only: [:show]
-  resources :spaces, only: [:new, :create, :edit, :update, :index, :show]
+  resources :spaces, only: [:new, :create, :edit, :update, :index, :show] do
+    resources :photos, only: [:index, :new, :create, :destroy]
+  end
 
   resource :profile, only: [:edit, :update]
 

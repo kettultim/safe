@@ -6,7 +6,7 @@ class ProfilesController < ResourceController
 
     return {} unless params[key]
 
-    params.require(key).permit(:name, :country, :story)
+    params.require(key).permit(:name, :country, :story, :photo)
   end
 
   def return_path

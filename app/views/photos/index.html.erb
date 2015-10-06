@@ -1,0 +1,18 @@
+<% content_for :title, "Photos of #{@space.name}" %>
+
+<%= link_to 'Add New Photo', new_space_photo_path(@space) %> |
+<%= link_to 'Back to Dashboard', host_dashboard_path %>
+
+<div class="row">
+  <% @space_photos.each do |photo| %>
+    <div class="col-sm-4 col-md-4 col-lg-4 space-photo-<%= photo.id %>">
+      <%= image_tag photo.url(:medium) %>
+
+      <p><%= link_to(
+          'Delete',
+          space_photo_path(@space, photo),
+          method: :delete,
+          data: { confirm: 'Are you sure?' }) %></p>
+    </div>
+  <% end %>
+</div>

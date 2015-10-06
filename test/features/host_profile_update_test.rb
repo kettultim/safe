@@ -10,12 +10,15 @@ feature 'host profile update' do
 
     fill_in 'Name', with: 'Bob'
     select 'United States', from: 'Country'
+    attach_file 'Photo', test_image
     click_button 'Update Profile'
+
 
     current_path.must_equal edit_profile_path
 
     user.profile.reload
     user.profile.name.must_equal 'Bob'
     user.profile.country.must_equal 'US'
+    user.profile.photo.exists?.must_equal true
   end
 end

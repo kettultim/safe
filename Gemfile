@@ -32,6 +32,8 @@ gem 'bootstrap-wysihtml5-rails', '0.3.3.7'
 gem "paranoia", '2.1.3'
 # Countries
 gem 'country_select', '2.4.0'
+# File Upload
+gem 'paperclip', '4.3.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.5'
