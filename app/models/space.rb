@@ -8,4 +8,12 @@ class Space < ActiveRecord::Base
     country = ISO3166::Country[self.country]
     country.translations[I18n.locale.to_s] || country.name
   end
+
+  def main_photo
+    photos.first || photos.build
+  end
+
+  def has_photo?
+    photos.count > 0
+  end
 end

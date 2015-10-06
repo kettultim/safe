@@ -1,3 +1,7 @@
 <% content_for :title, "#{@space.country_name}: #{@space.name}" %>
 
 <p><%= simple_format(@space.description).html_safe %></p>
+
+<div class="row">
+  <%= render partial: 'photo', collection: @space.photos %>
+</div>
