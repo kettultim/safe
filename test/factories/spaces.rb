@@ -3,6 +3,6 @@ FactoryGirl.define do
     user { create(:host) }
     name { Faker::Company.name }
     country { Faker::Address.country_code }
-    description { Faker::Lorem.paragraphs }
+    description { Faker::Lorem.paragraphs.join("\n\n") }
   end
 end

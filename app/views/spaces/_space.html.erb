@@ -1,0 +1,14 @@
+<div class="col-md-4 col-lg-4">
+  <div class="panel panel-default space-<%= space.id %>">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= space.country_name %></h3>
+    </div>
+    <div class="panel-body">
+      <h4><%= link_to space.name, space %></h4>
+      <p>
+        <%= truncate(space.description, length: 100) %>
+        <%= link_to 'Read More', space %>
+      </p>
+    </div>
+  </div>
+</div>
