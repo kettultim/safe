@@ -5,9 +5,7 @@ feature 'Space index' do
   let(:space) { Space.first }
 
   setup do
-    10.times do
-      create(:space)
-    end
+    3.times { create(:space) }
 
     login_as user
     visit root_path

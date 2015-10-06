@@ -1,0 +1,13 @@
+<% content_for :title, "New Availability Range for #{@space.name}" %>
+
+<%= simple_form_for @availability, url: space_availabilities_path(@space) do |f| %>
+  <div class="form-group">
+    <%= f.input :start_date %>
+  </div>
+  <div class="form-group">
+    <%= f.input :end_date %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Add Range', class: 'btn btn-default' %>
+  </div>
+<% end %>
