@@ -2,5 +2,5 @@
 
 <%= simple_form_for @profile, url: profile_path(@profile) do |f| %>
   <%= render current_user.role, locals: { f: f } %>
-  <%= f.submit 'Update Profile', class: 'btn' %>
+  <%= f.submit 'Update Profile', class: 'btn btn-default' %>
 <% end %>
