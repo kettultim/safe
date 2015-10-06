@@ -9,8 +9,6 @@
 admin = User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
 host = User.create(email: 'host@test.com', password: 'testing12345', role: 'host')
 
-binding.pry
-
 Page.create(title: 'Sample Page', body: 'Content goes here!', published: true)
 
 Page.create(
