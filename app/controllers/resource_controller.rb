@@ -11,9 +11,10 @@ class ResourceController < ApplicationController
     load_and_authorize_resource params[:id]
   end
 
-  def self.crud klass = nil, attr: nil, attributes: []
+  def self.crud klass = nil, attr: nil, param_key: nil, attributes: []
     configure_resource klass, attr: attr
     define_method(:allowed_params) { attributes }
+    define_method(:resource_param_key) { param_key || resource_attr }
   end
 
   def index; end
@@ -23,17 +24,27 @@ class ResourceController < ApplicationController
 
   def create
     if resource.save
-      redirect_to return_path, success: "The #{resource_attr} as been created."
+      flash[:success] = "The #{resource_attr} as been created."
+      on_creation_success
     else
-      flash.new[:danger] = "The #{resource_attr} could not be created."
+      flash.now[:danger] = "The #{resource_attr} could not be created."
+      on_creation_failure
     end
+  end
+
+  def on_creation_success
+    redirect_to return_path
+  end
+
+  def on_creation_failure
+    render :new
   end
 
   def update
     if resource.update_attributes(resource_params)
       redirect_to return_path, success: "The #{resource_attr} has been updated."
     else
-      flash.new[:danger] = "The #{resource_attr} could not be updated."
+      flash.now[:danger] = "The #{resource_attr} could not be updated."
       render :edit
     end
   end
@@ -50,7 +61,7 @@ class ResourceController < ApplicationController
   end
 
   def resource_params
-    return {} unless params[resource_attr]
+    return {} unless params[resource_param_key]
 
     before_processing_parameters
     parameters
@@ -59,7 +70,7 @@ class ResourceController < ApplicationController
   def before_processing_parameters; end
 
   def parameters
-    params.require(resource_attr).permit allowed_params
+    params.require(resource_param_key).permit allowed_params
   end
 
   # ResourceAccessor overrides

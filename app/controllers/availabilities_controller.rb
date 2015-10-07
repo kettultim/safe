@@ -1,5 +1,6 @@
 class AvailabilitiesController < ResourceController
-  crud Availability, attributes: [:start_date, :end_date]
+  include SpaceScoping
+  crud attributes: [:start_date, :end_date]
 
   def find_resources
     space.availabilities.all
@@ -7,10 +8,6 @@ class AvailabilitiesController < ResourceController
 
   def authorize_resources
     SpacePolicy.new(current_user, @space).update?
-  end
-
-  def space
-    @space ||= (params[:space_id] && Space.find(params[:space_id])) || space_photo.space
   end
 
   def after_building_resource
