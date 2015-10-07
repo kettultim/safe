@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:show]
   resources :spaces, only: [:new, :create, :edit, :update, :index, :show] do
     resources :photos, only: [:index, :new, :create, :destroy]
+    resources :availabilities, only: [:index, :new, :create, :destroy]
   end
 
   resource :profile, only: [:edit, :update]

@@ -1,8 +1,11 @@
 class Space < ActiveRecord::Base
-  paginates_per 5
+  paginates_per 12
+
   belongs_to :user
-  validates_presence_of :name, :country
   has_many :photos, class_name: 'SpacePhoto', dependent: :destroy
+  has_many :availabilities, dependent: :destroy
+
+  validates_presence_of :name, :country
 
   def country_name
     country = ISO3166::Country[self.country]

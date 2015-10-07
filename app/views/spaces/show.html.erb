@@ -2,6 +2,24 @@
 
 <p><%= simple_format(@space.description).html_safe %></p>
 
+<% if @space.photos.count > 0 %>
+  <h3>Photos</h3>
+  <div class="row">
+    <%= render partial: 'photo', collection: @space.photos %>
+  </div>
+<% end %>
+
+
+<h3>Availability</h3>
+
 <div class="row">
-  <%= render partial: 'photo', collection: @space.photos %>
+  <% if @space.availabilities.upcoming.count > 0 %>
+    <ul>
+      <%= render(
+          partial: 'availability',
+          collection: @space.availabilities.upcoming) %>
+    </ul>
+  <% else %>
+    <p>This space is not currently available.</p>
+  <% end %>
 </div>

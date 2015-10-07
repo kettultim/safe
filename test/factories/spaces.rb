@@ -5,5 +5,6 @@ FactoryGirl.define do
     country { Faker::Address.country_code }
     description { Faker::Lorem.paragraphs.join("\n\n") }
     photos { build_list :space_photo, 1 }
+    availabilities { build_list :availability, 3 }
   end
 end
