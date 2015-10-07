@@ -44,6 +44,12 @@ gem 'jbuilder', '2.3.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '0.4.1', group: :doc
 
+# Amazon AWS
+gem 'aws-sdk', '~> 2'
+
+# Figaro for easy env variables
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
