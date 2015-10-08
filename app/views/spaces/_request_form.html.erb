@@ -1,0 +1,11 @@
+<%= simple_form_for @request, url: space_requests_path(@space) do |f| %>
+  <div class="form-group">
+    <%= f.input :email %>
+  </div>
+  <div class="form-group">
+    <%= f.input :message %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Submit Request', class: 'btn btn-default' %>
+  </div>
+<% end %>

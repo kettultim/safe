@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :spaces, only: [:new, :create, :edit, :update, :index, :show] do
     resources :photos, only: [:index, :new, :create, :destroy]
     resources :availabilities, only: [:index, :new, :create, :destroy]
+    resources :requests, only: [:create]
   end
 
   resource :profile, only: [:edit, :update]

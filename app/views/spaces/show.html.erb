@@ -19,6 +19,7 @@
           partial: 'availability',
           collection: @space.availabilities.upcoming) %>
     </ul>
+    <%= render partial: 'request_form' %>
   <% else %>
     <p>This space is not currently available.</p>
   <% end %>

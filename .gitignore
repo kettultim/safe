@@ -13,7 +13,7 @@
 /tmp
 
 # Ignore system files
-/system/public/*
+/public/system/*
 
 *~
 # Ignore application configuration

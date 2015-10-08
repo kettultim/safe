@@ -4,6 +4,7 @@ class Space < ActiveRecord::Base
   belongs_to :user
   has_many :photos, class_name: 'SpacePhoto', dependent: :destroy
   has_many :availabilities, dependent: :destroy
+  has_many :requests
 
   validates_presence_of :name, :country
 
