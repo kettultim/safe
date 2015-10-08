@@ -47,7 +47,7 @@ gem 'sdoc', '0.4.1', group: :doc
 gem 'rails_12factor', '0.0.3'
 
 # Amazon AWS
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 1.5.7'
 
 # Figaro for easy env variables
 gem 'figaro'
