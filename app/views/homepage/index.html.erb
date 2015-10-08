@@ -1,5 +1,16 @@
-<h1>welcome</h1>
+<h1>Welcome Home</h1>
 
 <% if user_signed_in? %>
   <p>logged in as <%= current_user.email %></p>
 <% end %>
+
+<cta>
+  <h2>
+    Safe helps connect people in need with those with the space to help.
+  </h2>
+  <h3>
+    If you're currently displaced and in need of a safe home, <a href="users/sign_up">sign up</a> and get matched with people welcoming you into their home.
+  </h3>
+  <a role="button" class="btn blue btn-lg"href="users/sign_up">Get Safe</a>
+</cta>
+

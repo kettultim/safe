@@ -19,8 +19,8 @@ Page.create(
 )
 
 @menu = Menu.create(name: 'Main Menu', key: 'main')
-@menu.items << MenuItem.new(link_label: 'Item One', link_url: 'http://google.com')
-@menu.items << MenuItem.new(link_label: 'Item Two', link_url: '/')
+@menu.items << MenuItem.new(link_label: 'About', link_url: '/about')
+@menu.items << MenuItem.new(link_label: 'Support', link_url: 'http://gofundme.com')
 
 host.profile.update_attributes(
   name: 'Bobby',

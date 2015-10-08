@@ -1,18 +1,8 @@
+//Import Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
+@import "clearfix";
 
-//Background
-.bg { 
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index: -1;
-    background: url(http://s3.amazonaws.com/safeimages/img/bg.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
-}
+//Import custom styles
+@import "main";

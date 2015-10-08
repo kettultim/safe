@@ -7,4 +7,6 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
       u.permit(:role, :email, :password, :password_confirmation)
     end
   end
+
+  respond_to :json
 end
