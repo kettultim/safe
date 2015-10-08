@@ -1,5 +1,5 @@
 class RequestMailer < ApplicationMailer
-  default from: 'donotreply@app.com'
+  default from: 'donotreply@safeapp.heroku.com'
 
   def notify_host request_id
     @request = Request.find request_id
