@@ -1,21 +1,47 @@
-<h1>Sign Up For Free</h1>
+<div class="form">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <ul class="tab-group">
+    <li class="tab active"><a href="#signup">Sign Up</a></li>
+    <li class="tab"><a href="#login">Log In</a></li>
+  </ul>
 
-  <div class="form-inputs form-group">
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-lg blue" %>
+  <div class="tab-content">
+    <div id="signup">   
+      <h2>Sign Up for Free</h1>
+      
+      <div class="form-inputs form-group">
+        <div class="form-actions">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.collection_radio_buttons :role, [[:guest, 'Guest'],[:host, 'Host']], :first, :last %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+            <%= f.button :submit, "Sign Up", class: "btn btn-lg blue" %>
+          <% end %>
+        </div>
+        
+      </div>
+
     </div>
-    <%= render "devise/shared/links" %>
     
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.collection_radio_buttons :role, [[:guest, 'Guest'],[:host, 'Host']], :first, :last %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+    <div id="login">   
+      <h2>Welcome Back!</h2>
 
- 
-<% end %>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
 
+            <div class="form-actions">
+              <%= f.button :submit, "Log In", class: "btn btn-lg blue" %>
+            </div>
+          <% end %>
 
+    </div>
+    
+  </div><!-- tab-content -->
+
+</div>
