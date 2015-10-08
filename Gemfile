@@ -44,6 +44,8 @@ gem 'jbuilder', '2.3.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '0.4.1', group: :doc
 
+gem 'rails_12factor', '0.0.3'
+
 # Amazon AWS
 gem 'aws-sdk', '~> 2'
 
