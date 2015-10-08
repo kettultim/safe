@@ -18,8 +18,8 @@ directories %w(app lib config test spec features) \
 guard 'livereload' do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/helpers/.+\.rb})
-  watch(%r{assets/.+\.(css|js|html)})
+  watch(%r{assets/.+\.(scss|js|html)})
   watch(%r{config/locales/.+\.yml})
   # Rails Assets Pipeline
-  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(scss|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
 end
