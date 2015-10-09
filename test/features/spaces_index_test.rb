@@ -2,10 +2,10 @@ require 'test_helper'
 
 feature 'Space index' do
   let(:user) { create(:guest) }
-  let(:space) { Space.first }
+  let(:space) { create(:space) }
 
   setup do
-    3.times { create(:space) }
+    space
 
     login_as user
     visit root_path

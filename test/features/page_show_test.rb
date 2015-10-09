@@ -8,11 +8,8 @@ feature 'Viewing a Page' do
   describe 'published page' do
     let(:custom_page) { create(:page) }
 
-    scenario 'it shows the page title' do
+    scenario 'it shows the page title and body' do
       page.must_have_content custom_page.title
-    end
-
-    scenario 'it shows the page body' do
       page.html.must_include custom_page.body
     end
   end
@@ -27,15 +24,9 @@ feature 'Viewing a Page' do
         visit page_path(custom_page)
       end
 
-      scenario 'it shows the page title' do
+      it 'shows not published' do
         page.must_have_content custom_page.title
-      end
-
-      scenario 'it shows the page body' do
         page.html.must_include custom_page.body
-      end
-
-      scenario 'it shows a warning' do
         page.must_have_content 'not published'
       end
     end
