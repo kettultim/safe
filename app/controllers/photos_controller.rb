@@ -7,7 +7,7 @@ class PhotosController < ResourceController
   end
 
   def authorize_resources
-    SpacePolicy.new(current_user, space).update?
+    policy(space).update?
   end
 
   def after_building_resource

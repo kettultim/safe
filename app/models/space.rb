@@ -20,4 +20,8 @@ class Space < ActiveRecord::Base
   def has_photo?
     photos.count > 0
   end
+
+  def available?
+    availabilities.upcoming.count > 0
+  end
 end

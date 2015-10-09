@@ -15,6 +15,7 @@ class SpacesController < ResourceController
 
   def show
     @request = space.requests.build(email: current_user.email)
+    @show_request_form = policy(@request).create?
   end
 
   def find_resources

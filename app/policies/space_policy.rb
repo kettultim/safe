@@ -8,12 +8,10 @@ class SpacePolicy < ApplicationPolicy
   end
 
   def show?
-    return true
     !(NullUser === user)
   end
 
   def index?
-    return true
     !(NullUser === user)
   end
 end

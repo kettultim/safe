@@ -2,8 +2,10 @@ require 'test_helper'
 
 feature 'Space show page' do
   let(:space) { create(:space) }
+  let(:user) { create(:guest) }
 
   setup do
+    login_as user
     visit space_path(space)
   end
 
