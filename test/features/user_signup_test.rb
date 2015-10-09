@@ -14,12 +14,13 @@ feature 'User signup' do
   def signup_as role
     visit new_user_registration_path
 
-    fill_in 'user_email', with: build(:user).email
-    fill_in 'user_password', with: test_password
-    fill_in 'user_password_confirmation', with: test_password
-
-    choose role
-    click_button 'Sign up'
+    within '#signup' do
+      fill_in 'user_email', with: build(:user).email
+      fill_in 'user_password', with: test_password
+      fill_in 'user_password_confirmation', with: test_password
+      choose role
+      click_button 'Sign Up'
+    end
 
     User.last
   end
