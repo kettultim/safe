@@ -22,9 +22,13 @@ end
 def login(user)
   visit root_path
   click_link 'Login'
-  fill_in :user_email, with: user.email
-  fill_in :user_password, with: test_password
-  click_button 'Log in'
+
+  within '#login' do
+    fill_in :user_email, with: user.email
+    fill_in :user_password, with: test_password
+    click_button 'Log In'
+  end
+
 end
 
 DatabaseCleaner.strategy = :transaction
