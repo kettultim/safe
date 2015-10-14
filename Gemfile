@@ -39,6 +39,8 @@ gem 'paperclip', '4.3.1'
 gem 'jquery-rails', '4.0.5'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.5.3'
+#jquery tubrbolinks fixes issues with AJAX loading & jquery
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.3.1'
 # bundle exec rake doc:rails generates the API under doc/api.
