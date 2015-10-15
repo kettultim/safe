@@ -1,0 +1,14 @@
+//Styles for data tables and grids
+
+//Table striping
+.table-striped
+    > tbody
+        > tr {
+            &:nth-of-type(odd) {
+                background: none;
+                background-color: transparent;
+            }
+            th, td {
+                border-color:#333;
+            }
+        }

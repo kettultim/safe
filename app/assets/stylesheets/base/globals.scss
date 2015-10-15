@@ -2,26 +2,6 @@
   box-sizing: border-box;
 }
 
-//Background
-.bg { 
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index: -1;
-    background: no-repeat center center fixed; 
-    background-image: linear-gradient(
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.5)
-        ),
-        url(http://s3.amazonaws.com/safeimages/img/bg.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
-}
-
 //Main wrapper
 #main {
     margin-top:$navbar-height;
@@ -29,7 +9,6 @@
 
 //Typography
 body {
-    color: white;
     font-weight:normal;
     line-height: 1.2em;
 }
@@ -46,6 +25,10 @@ $red: #FF4A21;
 //Links & Buttons
 a {
     color: $blue;
+    &:hover {
+        color: lighten($blue, 10%);
+        text-decoration: none;
+    }
 }
 
 .btn.blue {

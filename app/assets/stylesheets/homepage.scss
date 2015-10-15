@@ -1,0 +1,16 @@
+//Import Bootstrap
+//Import Bootstrap
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
+@import "clearfix";
+
+//Set the base styles first
+@import "base/globals";
+
+//Import the rest of the styles
+@import "styles/forms";
+@import "styles/tables";
+
+//Page specific styles
+@import "page/home";
