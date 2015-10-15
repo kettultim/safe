@@ -1,6 +1,6 @@
 <% content_for :title, 'Manage Your Listings' %>
 
-<%= link_to 'Add a Space', new_space_path %>
+<%= link_to 'List Your Space', new_space_path, { :class=>"button" } %>
 
 <%= admin_table_tag %>
 <tr><th>Property Name</th><th>Country</th><th>Actions</th></tr>
@@ -11,7 +11,7 @@
     <td><%= space.country %></td>
     <td>
       <%= link_to 'Edit', edit_space_path(space) %> |
-      <%= link_to 'Manage Photos', space_photos_path(space) %>
+      <%= link_to 'Manage Photos', space_photos_path(space) %> | 
       <%= link_to 'Manage Availability', space_availabilities_path(space) %>
     </td>
   </tr>

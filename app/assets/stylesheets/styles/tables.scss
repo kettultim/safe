@@ -5,10 +5,39 @@
     > tbody
         > tr {
             &:nth-of-type(odd) {
-                background: none;
-                background-color: transparent;
+                background:lighten($body-bg, 10%);
             }
             th, td {
-                border-color:#333;
+                border:none;
+                padding:1em;
             }
         }
+
+.table-bordered {
+    border:none;
+    margin-top:2em;
+}
+
+.panel.panel-default {
+    border:none;
+    background:lighten($body-bg, 8%);
+    > .panel-heading {
+        border:none;
+        background:lighten($body-bg, 10%);
+        .panel-title 
+            > a {
+                color:white;
+            }
+    }
+    .panel-body {
+        img {
+            margin: 0 0 1em 0;
+            width:100%;
+            image-rendering: crisp-edges;
+        }
+        p {
+            padding:2em;
+            background:lighten($body-bg, 10%);
+        }
+    }
+}

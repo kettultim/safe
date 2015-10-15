@@ -200,8 +200,10 @@ textarea {
   color:white;
   transition:all.2s ease;
   -webkit-appearance: none;
+  display:inline-block;
   &:hover, &:focus {
     background:$green-light;
+    color:white;
   }
 }
 

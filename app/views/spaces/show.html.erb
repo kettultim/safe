@@ -1,5 +1,9 @@
-<% content_for :title, "#{@space.country_name}: #{@space.name}" %>
+<% content_for :title, "#{@space.name} in #{@space.country_name}" %>
 
+<h3>Host Bio</h3>
+<%= %>
+
+<h3>Accommodation Information</h3>
 <p><%= simple_format(@space.description).html_safe %></p>
 
 <% if @space.photos.count > 0 %>
