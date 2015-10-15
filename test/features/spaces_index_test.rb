@@ -9,7 +9,7 @@ feature 'Space index' do
 
     login_as user
     visit root_path
-    click_link 'Browse Spaces'
+    click_link 'Find a Safe Space'
   end
 
   scenario 'It lists the spaces' do

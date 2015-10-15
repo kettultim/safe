@@ -7,7 +7,7 @@ feature 'Space creation' do
     login_as user
     visit root_path
 
-    click_link 'Host Dashboard'
+    click_link 'Manage Your Listings'
     click_link 'Add a Space'
 
     fill_in 'Name', with: 'Main Street - Room 1'

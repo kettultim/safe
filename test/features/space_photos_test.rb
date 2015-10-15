@@ -6,7 +6,7 @@ feature 'Space photo upload' do
   setup do
     login_as space.user
     visit root_path
-    click_link 'Host Dashboard'
+    click_link 'Manage Your Listings'
 
     within ".space-#{space.id}" do
       click_link 'Manage Photos'

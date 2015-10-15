@@ -1,18 +1,5 @@
-$body-bg: #c1bdba;
-$form-bg: #13232f;
-
-$green-light: lighten($green,5%);
-$green-dark: darken($green,5%);
-
-$gray-light: #a0b3b0;
-$gray: #ddd;
-
-$thin: 300;
-$normal: 400;
-$bold: 600;
-
 .form {
-  background:rgba($form-bg,.9);
+  background:lighten($body-bg,3%);
   max-width:600px;
   padding-bottom:1em;
   margin:40px auto;
@@ -60,7 +47,7 @@ $bold: 600;
     &.hint {
       width:100%;
       margin:0 0 .5em 0;
-      color:lighten($form-bg, 30%);
+      color:lighten($body-bg, 30%);
     } 
   }
 }
@@ -68,7 +55,6 @@ $bold: 600;
 .tab-group {
   list-style:none;
   padding:0;
-  margin:0 0 40px 0;
   &:after {
     content: "";
     display: table;
@@ -98,7 +84,7 @@ $bold: 600;
 }
 
 .tab-content {
-  padding:0 2em;
+  padding:2em;
 }
 
 .tab-content > div:last-child {
@@ -122,15 +108,20 @@ label {
   position:absolute;
   transform:translateY(6px);
   left:.5em;
-  color:rgba(white,.5);
+  color: white;
   transition:all 0.15s ease;
   -webkit-backface-visibility: hidden;
-  font-size:22px;
+  font-size:18px;
   font-weight: 300;
   top:.2em;
-  abbr {
+  abbr,
+  abbr[title] {
     margin:2px;
     color:$green;
+    border-bottom:none;
+  }
+  &.country {
+    display:none;
   }
 }
 
@@ -145,7 +136,11 @@ label.highlight {
     color:white;
 }
 
-input, textarea {
+input[type="text"][class*=" "],
+input[type="email"][class*=" "],
+input[type="password"][class*=" "],
+textarea[class*=" "],
+select[class*=" "] {
   margin-bottom:.5em;
   font-size:22px;
   display:block;
@@ -203,10 +198,10 @@ textarea {
   letter-spacing:.1em;
   background:$green;
   color:white;
-  transition:all.5s ease;
+  transition:all.2s ease;
   -webkit-appearance: none;
   &:hover, &:focus {
-    background:$green-dark;
+    background:$green-light;
   }
 }
 

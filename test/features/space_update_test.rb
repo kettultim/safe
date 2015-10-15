@@ -6,7 +6,7 @@ feature 'Space update' do
   setup do
     login_as space.user
     visit root_path
-    click_link 'Host Dashboard'
+    click_link 'Manage Your Listings'
 
     within ".space-#{space.id}" do
       click_link 'Edit'
@@ -27,7 +27,7 @@ feature 'Space update' do
     space.description.must_equal 'pfff'
   end
 
-  scenario 'it redirects to the host dashboard' do
+  scenario 'it redirects to the Manage Your Listings' do
     current_path.must_equal host_dashboard_path
   end
 end

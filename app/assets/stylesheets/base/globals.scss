@@ -2,6 +2,25 @@
   box-sizing: border-box;
 }
 
+//Variables
+$body-bg: #13232f;
+
+//Colors
+$blue: #00E7FF;
+$green: #02D490;
+$red: #FF4A21;
+
+$green-light: lighten($green,5%);
+$green-dark: darken($green,5%);
+
+$gray-light: #a0b3b0;
+$gray: #ddd;
+
+//Text
+$thin: 300;
+$normal: 400;
+$bold: 600;
+
 //Main wrapper
 #main {
     margin-top:$navbar-height;
@@ -11,16 +30,13 @@
 body {
     font-weight:normal;
     line-height: 1.2em;
+    background-color: $body-bg;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
 }
-
-//Colors
-$blue: #00E7FF;
-$green: #00FFAD;
-$red: #FF4A21;
 
 //Links & Buttons
 a {
