@@ -1,6 +1,8 @@
 class SpacesController < ResourceController
   crud Space, attributes: [:name, :country, :description]
 
+  before_filter :require_valid_profile, only: :new
+
   def return_path
     host_dashboard_path
   end

@@ -3,6 +3,8 @@ class RequestsController < ResourceController
 
   crud attr: :space_request, param_key: :request, attributes: [:email, :message]
 
+  before_filter :require_valid_profile, only: :new
+
   def after_building_resource
     @space_request.space_id = space.id
     @space_request.user_id  = current_user.id

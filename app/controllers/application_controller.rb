@@ -27,4 +27,11 @@ class ApplicationController < ActionController::Base
   def load_menus
     @main_menu = Menu.find_by_key('main')
   end
+
+  def require_valid_profile
+    unless current_user.valid_profile?
+      flash[:warning] = %{Please complete your profile!}
+      redirect_to edit_profile_path
+    end
+  end
 end

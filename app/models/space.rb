@@ -9,7 +9,7 @@ class Space < ActiveRecord::Base
   validates_presence_of :name, :country
 
   def host_bio
-    user.bio
+    user.about.to_s
   end
 
   def country_name

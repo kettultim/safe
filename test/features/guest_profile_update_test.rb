@@ -5,6 +5,7 @@ feature 'guest profile update' do
 
   scenario 'user updates a profile' do
     login_as user
+
     visit root_path
     click_link 'Edit Profile'
 

@@ -15,4 +15,8 @@ class NullUser
   def host?
     false
   end
+
+  def valid_profile?
+    false
+  end
 end

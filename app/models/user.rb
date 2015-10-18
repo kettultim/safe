@@ -20,16 +20,16 @@ class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true, dependent: :destroy
   has_many :spaces, dependent: :destroy
 
-  def bio
-    profile.about.to_s
-  end
+  delegate :about, to: :profile, allow_nil: true
 
   after_create do |u|
-    if u.guest?
+    if u.guexost?
       u.profile = GuestProfile.new
+      u.profile.save(validate: false)
       u.save
     elsif u.host?
       u.profile = HostProfile.new
+      u.profile.save(validate: false)
       u.save
     end
   end
@@ -40,5 +40,9 @@ class User < ActiveRecord::Base
 
   def self.sign_up_roles
     ['guest', 'host']
+  end
+
+  def valid_profile?
+    profile.valid?
   end
 end
