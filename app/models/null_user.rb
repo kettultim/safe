@@ -7,4 +7,12 @@ class NullUser
   def email
     nil
   end
+
+  def guest?
+    false
+  end
+
+  def host?
+    false
+  end
 end

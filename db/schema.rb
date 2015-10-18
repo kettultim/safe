@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007151636) do
+ActiveRecord::Schema.define(version: 20151018180103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,16 @@ ActiveRecord::Schema.define(version: 20151007151636) do
   create_table "guest_profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
-    t.text     "story"
+    t.text     "about"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "phone"
+    t.string   "twitter"
+    t.integer  "number_living_with"
   end
 
   create_table "host_profiles", force: :cascade do |t|
@@ -58,6 +61,9 @@ ActiveRecord::Schema.define(version: 20151007151636) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "about"
+    t.string   "phone"
+    t.string   "twitter"
   end
 
   create_table "menu_items", force: :cascade do |t|
