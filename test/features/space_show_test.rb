@@ -25,7 +25,7 @@ feature 'Space show page' do
     space.photos.count.wont_equal 0
 
     space.photos.each do |p|
-      page.body.must_include p.url(:medium)
+      page.body.must_include p.url(:large)
     end
   end
 end

@@ -8,7 +8,7 @@ feature 'Space creation' do
     visit root_path
 
     click_link 'Manage Your Listings'
-    click_link 'Add a Space'
+    click_link 'List Your Space'
 
     fill_in 'Name', with: 'Main Street - Room 1'
     select 'United States', from: 'Country'

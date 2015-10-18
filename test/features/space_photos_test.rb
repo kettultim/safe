@@ -31,7 +31,7 @@ feature 'Space photo upload' do
   end
 
   scenario 'it displays the photo' do
-    page.body.must_include @photo.url(:medium)
+    page.body.must_include @photo.url(:large)
   end
 
   scenario 'it can be deleted' do
@@ -40,7 +40,7 @@ feature 'Space photo upload' do
     end
 
     page.current_path.must_equal space_photos_path(space)
-    page.body.wont_include @photo.url(:medium)
+    page.body.wont_include @photo.url(:large)
 
     space.reload
     space.photos.all.wont_include @photo
