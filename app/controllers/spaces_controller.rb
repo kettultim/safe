@@ -10,7 +10,7 @@ class SpacesController < ResourceController
   end
 
   def index
-    @available_countries = Space.uniq.pluck(:country)
+    @available_countries = Space.available_countries
   end
 
   def show

@@ -24,4 +24,8 @@ class Space < ActiveRecord::Base
   def available?
     availabilities.upcoming.count > 0
   end
+
+  def self.available_countries
+    uniq.pluck :country
+  end
 end

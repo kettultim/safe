@@ -8,10 +8,10 @@ class SpacePolicy < ApplicationPolicy
   end
 
   def show?
-    !(NullUser === user)
+    true #!(NullUser === user)
   end
 
   def index?
-    !(NullUser === user)
+    true #!(NullUser === user)
   end
 end

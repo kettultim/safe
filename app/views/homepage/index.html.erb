@@ -15,3 +15,14 @@
   <a role="button" class="btn blue btn-lg"href="users/sign_up">Get Safe</a>
 </cta>
 
+<div class="row">
+  <div class="col-xs-12">
+    <%= simple_form_for :space, url: spaces_path, method: :get do |f| %>
+      <div class="form-group">
+        <%= f.input :country, required: false, selected: @country,
+            only: @available_countries %>
+      </div>
+      <%= f.submit 'Search', class: 'btn btn-default' %>
+      <% end %>
+  </div>
+</div>
