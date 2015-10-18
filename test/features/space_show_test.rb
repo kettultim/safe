@@ -13,6 +13,10 @@ feature 'Space show page' do
     page.must_have_content space.description
   end
 
+  scenario 'It includes the host bio' do
+    page.must_have_content space.host_bio
+  end
+
   scenario 'It includes the availabilities' do
     space.availabilities.upcoming.count.wont_equal 0
 

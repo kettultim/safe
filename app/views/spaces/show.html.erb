@@ -1,7 +1,7 @@
 <% content_for :title, "#{@space.name} in #{@space.country_name}" %>
 
 <h3>Host Bio</h3>
-<%= %>
+<%= @space.host_bio.html_safe %>
 
 <h3>Accommodation Information</h3>
 <p><%= simple_format(@space.description).html_safe %></p>

@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   belongs_to :profile, polymorphic: true, dependent: :destroy
   has_many :spaces, dependent: :destroy
 
+  def bio
+    profile.about.to_s
+  end
+
   after_create do |u|
     if u.guest?
       u.profile = GuestProfile.new
