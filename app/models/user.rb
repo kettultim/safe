@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   delegate :about, to: :profile, allow_nil: true
 
   after_create do |u|
-    if u.guexost?
+    if u.guest?
       u.profile = GuestProfile.new
       u.profile.save(validate: false)
       u.save
