@@ -3,9 +3,75 @@
     <%= f.input :name %>
   </div>
   <div class="form-group">
-    <%= f.input :country,  priority: [ "Germany" ] %>
+    <p>Enter the city/state/country below to find and complete the address form.</p>
+    <%= f.input :location %>
   </div>
+
+  <div class="location-fields">
+    <div class="form-group">
+      <%= f.input :locality, input_html: { 'data-google' => 'locality' } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :administrative_area,
+          input_html: { 'data-google' => 'administrative_area_level_1' } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :country, as: :string, input_html: { 'data-google' => 'country'} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :postal_code, input_html: { 'data-google' => 'postal_code' } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :latitude, as: :string %>
+    </div>
+    <div class="form-group">
+      <%= f.input :longitude, as: :string %>
+    </div>
+  </div>
+
   <div class="form-group">
     <%= f.input :description %>
   </div>
 <% end %>
+
+
+<script>
+var placeSearch, autocomplete;
+
+var formMapping = {
+  locality: 'long_name',
+  administrative_area_level_1: 'long_name',
+  country: 'short_name',
+  postal_code: 'short_name'
+};
+
+
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById('space_location'),
+    { types: ['geocode'] }
+  );
+
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  var place = autocomplete.getPlace();
+
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (formMapping[addressType]) {
+      var val = place.address_components[i][formMapping[addressType]];
+      $("input[data-google=" + addressType + "]").val(val);
+    }
+  }
+
+  $("#space_latitude").val(place.geometry.location.lat());
+  $("#space_longitude").val(place.geometry.location.lng());
+}
+
+$(document).ready(initAutocomplete);
+$(document).ready(function() {
+  $(".location-fields input").attr('disabled', true);
+});
+</script>

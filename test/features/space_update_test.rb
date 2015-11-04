@@ -13,7 +13,7 @@ feature 'Space update' do
     end
 
     fill_in 'Name', with: 'New Name'
-    select 'Canada', from: 'Country'
+    fill_in :space_country, with: 'CA'
     fill_in 'Description', with: 'pfff'
 
     click_button 'Update Space'

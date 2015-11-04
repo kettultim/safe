@@ -1,5 +1,7 @@
 class SpacesController < ResourceController
-  crud Space, attributes: [:name, :country, :description]
+  crud Space, attributes: [:name, :description, :locality,
+    :administrative_area, :country, :postal_code, :latitude, :longitude,
+    :description]
 
   before_filter :require_valid_profile, only: :new
 

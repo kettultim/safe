@@ -11,7 +11,12 @@ feature 'Space creation' do
     click_link 'List Your Space'
 
     fill_in 'Name', with: 'Main Street - Room 1'
-    select 'United States', from: 'Country'
+    fill_in :space_locality, with: 'Dunmore'
+    fill_in :space_administrative_area, with: 'PA'
+    fill_in :space_country, with: 'US'
+    fill_in :space_postal_code, with: '12345'
+    fill_in :space_latitude, with: '1'
+    fill_in :space_longitude, with: '2'
     fill_in 'Description', with: 'Blah blah blah'
     click_button 'Create Space'
 
@@ -19,7 +24,12 @@ feature 'Space creation' do
     space.user.must_equal user
 
     space.name.must_equal 'Main Street - Room 1'
+    space.locality.must_equal 'Dunmore'
+    space.administrative_area.must_equal 'PA'
     space.country.must_equal 'US'
+    space.postal_code.must_equal '12345'
+    space.latitude.must_equal 1
+    space.longitude.must_equal 2
     space.description.must_equal 'Blah blah blah'
 
     current_path.must_equal host_dashboard_path

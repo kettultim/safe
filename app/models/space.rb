@@ -1,12 +1,14 @@
 class Space < ActiveRecord::Base
   paginates_per 12
+  attr_accessor :location
 
   belongs_to :user
   has_many :photos, class_name: 'SpacePhoto', dependent: :destroy
   has_many :availabilities, dependent: :destroy
   has_many :requests
 
-  validates_presence_of :name, :country
+  validates_presence_of :name, :country, :locality, :administrative_area,
+  :postal_code, :latitude, :longitude
 
   def host_bio
     user.about.to_s
