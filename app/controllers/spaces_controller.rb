@@ -1,7 +1,7 @@
 class SpacesController < ResourceController
   crud Space, attributes: [:name, :description, :locality,
     :administrative_area, :country, :postal_code, :latitude, :longitude,
-    :description]
+    :description, :number_of_rooms, :number_of_people_allowed]
 
   before_filter :require_valid_profile, only: :new
 

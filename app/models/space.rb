@@ -7,8 +7,8 @@ class Space < ActiveRecord::Base
   has_many :availabilities, dependent: :destroy
   has_many :requests
 
-  validates_presence_of :name, :country, :locality, :administrative_area,
-  :postal_code, :latitude, :longitude
+  validates_presence_of :name,   :number_of_rooms, :number_of_people_allowed,
+  :country, :locality, :administrative_area, :postal_code, :latitude, :longitude
 
   def host_bio
     user.about.to_s
