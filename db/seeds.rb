@@ -6,8 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = User.create(email: 'admin@test.com', password: 'testing12345', role: 'admin')
-host = User.create(email: 'host@test.com', password: 'testing12345', role: 'host')
+admin = User.create(
+  email: 'admin@test.com', password: 'testing12345', role: 'admin'
+)
+
+host = User.create(
+  email: 'host@test.com', password: 'testing12345', role: 'host'
+)
 
 Page.create(title: 'Sample Page', body: 'Content goes here!', published: true)
 
@@ -30,7 +35,18 @@ host.profile.update_attributes(
 10.times do
   host.spaces << Space.new(
     name: Faker::Company.name,
+    locality:  Faker::Address.city,
+    administrative_area: Faker::Address.state,
     country: Faker::Address.country_code,
-    description: Faker::Lorem.paragraphs.join("\n\n")
+    postal_code: Faker::Address.postcode,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    description: Faker::Lorem.paragraphs.join("\n\n"),
+    number_of_rooms: 1,
+    number_of_people_allowed: 2
   )
+end
+
+10.times do
+  Feature.create name: Faker::Company.buzzword
 end

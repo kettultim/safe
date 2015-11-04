@@ -3,6 +3,10 @@ require 'test_helper'
 feature 'Space creation' do
   let(:user) { create(:host) }
 
+  setup do
+    @features = create_list(:feature, 4)
+  end
+
   scenario 'Host creates a property' do
     login_as user
     visit root_path
@@ -20,6 +24,7 @@ feature 'Space creation' do
     fill_in :space_number_of_rooms, with: '11'
     fill_in :space_number_of_people_allowed, with: '12'
     fill_in :space_description, with: 'Blah blah blah'
+    check @features.first.name
     click_button 'Create Space'
 
     space = Space.last
@@ -35,6 +40,7 @@ feature 'Space creation' do
     space.description.must_equal 'Blah blah blah'
     space.number_of_rooms.must_equal 11
     space.number_of_people_allowed.must_equal 12
+    space.features.must_include @features.first
 
     current_path.must_equal host_dashboard_path
 

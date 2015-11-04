@@ -4,6 +4,8 @@ feature 'Space update' do
   let(:space) { create(:space) }
 
   setup do
+    @features = create_list(:feature, 4)
+
     login_as space.user
     visit root_path
     click_link 'Manage Your Listings'
@@ -22,6 +24,8 @@ feature 'Space update' do
     fill_in :space_number_of_rooms, with: '4'
     fill_in :space_number_of_people_allowed, with: '5'
     fill_in :space_description, with: 'Blah blah'
+    check @features.first.name
+    check @features.last.name
     click_button 'Update Space'
   end
 
@@ -37,6 +41,8 @@ feature 'Space update' do
     space.description.must_equal 'Blah blah'
     space.number_of_rooms.must_equal 4
     space.number_of_people_allowed.must_equal 5
+    space.features.must_include @features.first
+    space.features.must_include @features.last
 
     current_path.must_equal host_dashboard_path
   end

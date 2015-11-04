@@ -5,6 +5,10 @@ class SpacesController < ResourceController
 
   before_filter :require_valid_profile, only: :new
 
+  def parameters
+    params.require(:space).permit(*allowed_params, feature_ids: [])
+  end
+
   def return_path
     host_dashboard_path
   end

@@ -6,6 +6,7 @@ class Space < ActiveRecord::Base
   has_many :photos, class_name: 'SpacePhoto', dependent: :destroy
   has_many :availabilities, dependent: :destroy
   has_many :requests
+  has_and_belongs_to_many :features
 
   validates_presence_of :name,   :number_of_rooms, :number_of_people_allowed,
   :country, :locality, :administrative_area, :postal_code, :latitude, :longitude
