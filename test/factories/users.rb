@@ -18,6 +18,7 @@ FactoryGirl.define do
 
     factory :host do
       role 'host'
+      association :profile, factory: :host_profile
     end
   end
 end
