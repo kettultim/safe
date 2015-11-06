@@ -17,7 +17,7 @@
     &.active {
       top:0;
       label label {
-        background: $blue;
+        background: darken($blue, 5%);
       }
     }
     &:last-child {
@@ -33,7 +33,7 @@
         cursor: pointer;
         color:white;
         text-align: center;
-        line-height:2em;
+        line-height:3em;
         background: darken($blue, 20%);
       }
     }
@@ -60,6 +60,22 @@
   }
   input[type="checkbox"] {
     margin: -8px 0 0 -23px;
+  }
+}
+
+//Homepage radios
+#user_role_guest,
+#user_role_host {
+  display:none;
+}
+
+.toggle {
+  position: relative;
+  float:left;
+  width:100%;
+  .host-choice {
+    position: absolute;
+    bottom:1em;
   }
 }
 
@@ -132,6 +148,9 @@ label {
   font-weight: 300;
   margin:1em 0 .5em 0;
   top:.2em;
+  label {
+    margin: 0;
+  }
   &.check_boxes {
     clear:both;
     margin:.5em 0;

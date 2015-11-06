@@ -14,9 +14,11 @@
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
             <%= f.input :email, required: true, autofocus: true %>
-            Please select if you are a future house guest or a host.
             <div class="toggle">
               <%= f.collection_radio_buttons :role, [[:guest, 'Guest'],[:host, 'Host']], :first, :last %>
+              <div class="host-choice">
+                Please select if you are a future house guest or a host.
+              </div>
             </div>
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
             <%= f.input :password_confirmation, required: true %>
