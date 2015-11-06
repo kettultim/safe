@@ -1,3 +1,7 @@
+// General form styles
+form {
+  max-width:550px;
+}
 .form {
   background:lighten($body-bg,3%);
   max-width:600px;
@@ -79,6 +83,7 @@
   }
 }
 
+//Styles for the tab groups on signup/login
 .tab-group {
   list-style:none;
   padding:0;
@@ -118,25 +123,17 @@
   display:none;
 }
 
-.input {
-  position: relative;
-  clear:both;
-  &.field_with_errors {
-    input {
-      border:1px solid $red;
-    }
-  }
-  &.boolean {
-    margin:1em 1em 3em .5em;
-  }
-}
-
 .form-control {
   border:0;
   box-shadow:none;
   -webkit-box-shadow:none;
 }
 
+.error {
+  color:yellow;
+}
+
+//Label specific styles
 label {
   // position:absolute;
   // transform:translateY(6px);
@@ -148,6 +145,9 @@ label {
   font-weight: 300;
   margin:1em 0 .5em 0;
   top:.2em;
+  &.boolean[for="user_remember_me"] {
+    text-indent: 5px;
+  }
   label {
     margin: 0;
   }
@@ -180,9 +180,11 @@ label.highlight {
     color:white;
 }
 
+// Specific input types
 input[type="text"][class*=" "],
 input[type="email"][class*=" "],
 input[type="password"][class*=" "],
+input[type="tel"][class*=" "],
 textarea[class*=" "],
 select[class*=" "] {
   margin-bottom:.5em;
@@ -203,9 +205,28 @@ select[class*=" "] {
   }
 }
 
+//General input styles
+.input {
+  position: relative;
+  clear:both;
+  &.field_with_errors {
+    input {
+      border:1px solid $red;
+    }
+  }
+  &.boolean {
+    margin:1em 1em 3em .5em;
+    input {
+      margin: 0 0 0 -23px;
+    }
+  }
+}
+
 textarea {
   border:2px solid $gray-light;
   resize: vertical;
+  min-height:5em;
+  padding:.5em;
 }
 
 .field-wrap {
@@ -230,6 +251,7 @@ textarea {
   }
 }
 
+//Buttons
 .button,
 .btn {
   border:0;
