@@ -3,6 +3,7 @@
 Live example of app: http://safeapp.herokuapp.com
 
 ## Prerequisites
+(TODO: Add more depending on feedback)
 - Ruby 2.2.2
 - Rails 4.2.4
 
@@ -31,8 +32,9 @@ $ rake db:reset
 
 ​## Set the AWS creds locally
 
-*AWS_ACCESS_KEY_ID: AKIAJPMJNI5YYVAT5NQA
-AWS_SECRET_ACCESS_KEY: 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*
+**AWS_ACCESS_KEY_ID:** AKIAJPMJNI5YYVAT5NQA
+
+**AWS_SECRET_ACCESS_KEY:**ajMJgNDxc2yf5ryM2s9dcrXsNvVHMD9ApoCPMjIs
 
 ```
 $ figaro install
