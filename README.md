@@ -1,4 +1,4 @@
-== README (NEEDS UPDATING)
+# README (NEEDS UPDATING)
 
 Live example of app: http://safeapp.herokuapp.com
 
@@ -31,12 +31,12 @@ $ rake db:reset
 
 ​## Set the AWS creds locally
 
-AWS_ACCESS_KEY_ID: AKIAJPMJNI5YYVAT5NQA
-AWS_SECRET_ACCESS_KEY: ajMJgNDxc2yf5ryM2s9dcrXsNvVHMD9ApoCPMjIs
+*AWS_ACCESS_KEY_ID: AKIAJPMJNI5YYVAT5NQA
+AWS_SECRET_ACCESS_KEY: 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*
 
 ```
 $ figaro install
 ```
 
-Add the 2 keys above (in AWS Creds) to config/application.yml 
+Add the 2 keys above to config/application.yml 
 Restart rails server
